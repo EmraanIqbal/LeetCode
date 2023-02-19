@@ -9,16 +9,33 @@
 // Output: [9,4]
 // Explanation: [4,9] is also accepted.
 
-var intersect = function (nums1, nums2) {
+// var intersect = function (nums1, nums2) {
+//   let result = [];
+//   for (let i = 0; i < nums1.length; i++) {
+//     if (nums2.includes(nums1[i])) {
+//       result.push(nums1[i]);
+//       nums2.splice(nums2.indexOf(nums1[i]), 1);
+//     }
+//   }
+//   return result;
+// };
+
+// console.log(intersect([4, 9, 5], [9, 4, 9, 8, 4]));
+// // console.log(intersect([1, 2, 2, 1], [1, 2]));
+var maxArea = function (height) {
+  debugger;
   let result = [];
-  for (let i = 0; i < nums1.length; i++) {
-    if (nums2.includes(nums1[i])) {
-      result.push(nums1[i]);
-      nums2.splice(nums2.indexOf(nums1[i]), 1);
+  for (let i = 0; i <= height.length; i++) {
+    // for(let j = height.length-1; j > 1; j--){
+    for (let j = i + 1; j <= height.length - 1; j++) {
+      let val = height[i] > height[j] ? height[j] : height[i];
+      // console.log(val)
+
+      let newval = val * j;
+      result.push(newval);
     }
   }
-  return result;
-};
 
-console.log(intersect([4, 9, 5], [9, 4, 9, 8, 4]));
-// console.log(intersect([1, 2, 2, 1], [1, 2]));
+  console.log(result);
+};
+maxArea([1, 8, 6, 2, 5, 4, 8, 3, 7]);
